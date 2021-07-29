@@ -2,4 +2,4 @@ language: bash
 script:
  - echo hello
  - echo Travis CI test in .travis.yml
- - /report5-test.sh
+ - ./report5-test.sh
