@@ -17,12 +17,18 @@ is_positive_num() {
 	expr $1 + 1 > /dev/null 2>&1
 	if [ $? -eq 2 ]
 	then
-		echo "ERROR: $1, PIZ INPUT A NUMBER"
+		echo "ERROR: $1, PLZ INPUT A NUMBER"
 		exit 1
 	fi
 
 	num=`echo "$1" | awk '/[^0-9]/ {print}'`
 	if [[ ! -z $num ]]
+	then
+		echo "ERROR: $1 IS NOT A POSITIVE NUMBER"
+		exit 1
+	fi
+
+	if [ "$1" -eq "0" ]
 	then
 		echo "ERROR: $1 IS NOT A POSITIVE NUMBER"
 		exit 1
