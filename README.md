@@ -3,5 +3,6 @@
 
 使い方：
 ```
-./report5.sh <数> <数>
+$ git clone git@github.com:polyu-17002407g/report5.git
+$ ./report5.sh <数> <数>
 ```
