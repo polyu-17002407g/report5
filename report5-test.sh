@@ -9,6 +9,10 @@ ERROR_EXIT() {
 	exit 1
 }
 
+SUCCESS_MSG() {
+	echo "Success $1"
+}
+
 # テスト1異常動作の確認
 # 変数が一つ
 echo "ERROR: PLZ INPUT 2 ARGMENTS" > ${ans}
@@ -34,9 +38,9 @@ diff ${ans} ${result} || ERROR_EXIT "error in 1-2b"
 # テスト2正常動作の確認
 echo "8" > ${ans}
 ./report5.sh 1024 24 > ${result}
-diff ${ans} ${result} || ERROR_EXIT "error in 2-1a"
+diff ${ans} ${result} && SUCCESS_MSG "2-1a" || ERROR_EXIT "error in 2-1a"
 ./report5.sh 24 1024 > ${result}
-diff ${ans} ${result} || ERROR_EXIT "error in 2-1b"
+diff ${ans} ${result} && SUCCESS_MSG "2-1b" || ERROR_EXIT "error in 2-1b"
 
 # 後始末
 rm /tmp/$$-*
